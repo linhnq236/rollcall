@@ -28,6 +28,7 @@ gem 'pusher'
 gem 'figaro'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'gon'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

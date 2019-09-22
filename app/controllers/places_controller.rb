@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
+    gon.ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
   end
 
   # GET /places/1
@@ -69,6 +70,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:lat, :lon)
+      params.require(:place).permit(:lat, :lon, :ip)
     end
 end

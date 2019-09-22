@@ -1,10 +1,13 @@
 $(document).ready(function(){
+  var lat = '';
+  var lon = '';
+
   function geoFindMe() {
     function success(position) {
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
-      $("#lat").html(`${latitude}`);
-      $("#lon").html(`${longitude}`);
+      lat = `${latitude}`;
+      lon = `${longitude}`;
     }
     function error() {
       status.textContent = 'Unable to retrieve your location';
@@ -15,14 +18,12 @@ $(document).ready(function(){
       navigator.geolocation.getCurrentPosition(success, error);
     }
   }
-  $("#lat,#lon").hide();
   $("#rollcall").click(function(){
-    lat = $("#lat").html();
-    lon = $("#lon").html();
     rollcallData = {
       place:{
         lat: lat,
-        lon: lon
+        lon: lon,
+        ip: gon.ip
       }
     };
     if (lat == ''&& lon == ''){
