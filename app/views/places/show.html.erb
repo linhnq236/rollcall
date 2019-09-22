@@ -1,0 +1,4 @@
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@place.lat},#{@place.lon}&key=AIzaSyAynMv1zQBtQWREgkBniqqa9i2-qw7gMdc", alt: "Map" %>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %>
