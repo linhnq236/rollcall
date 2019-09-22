@@ -2,19 +2,19 @@ $(document).ready(function(){
   var lat = '';
   var lon = '';
 
-  function geoFindMe() {
-    function success(position) {
+  function geoFindMe(){
+    function success(position){
       const latitude  = position.coords.latitude;
       const longitude = position.coords.longitude;
       lat = `${latitude}`;
       lon = `${longitude}`;
     }
-    function error() {
+    function error(){
       status.textContent = 'Unable to retrieve your location';
     }
-    if (!navigator.geolocation) {
+    if(!navigator.geolocation){
       alert('Geolocation is not supported by your browser');
-    } else {
+    }else{
       navigator.geolocation.getCurrentPosition(success, error);
     }
   }
@@ -26,7 +26,7 @@ $(document).ready(function(){
         ip: gon.ip
       }
     };
-    if (lat == ''&& lon == ''){
+    if(lat == ''&& lon == ''){
         $.confirm({
         title: false,
         offsetTop: 20,
@@ -37,14 +37,14 @@ $(document).ready(function(){
           Cancel:{
             btnClass: "btn-red",
             action: function(){
-              alert('Roll call failed !')
+              alert('Roll call failed !');
             }
           },
           Confirm: {
             btnClass: "btn-blue",
             action: function(){
               geoFindMe();
-              alert('Turn on GPS success. Please Roll call again !')
+              alert('Turn on GPS success. Please Roll call again !');
             }
           },
         }
@@ -54,7 +54,7 @@ $(document).ready(function(){
         type: "POST",
         url: "/places",
         data: rollcallData,
-      }).done(function (response) {
+      }).done(function (response){
         alert("Roll call susccess.");
         location.reload();
       }).fail(function(response){
