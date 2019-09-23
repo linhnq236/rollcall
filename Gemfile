@@ -29,6 +29,10 @@ gem 'figaro'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'gon'
+gem 'slim-rails'
+gem 'carrierwave'
+gem 'carrierwave-base64'
+gem 'rmagick'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

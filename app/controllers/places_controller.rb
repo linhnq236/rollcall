@@ -5,7 +5,9 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
-    gon.ip = UDPSocket.open {|s| s.connect("64.233.187.99", 1); s.addr.last}
+    gon.ip = request.remote_ip
+    @ip_client = remote_ip()
+    # location = Socket.ip_address_list.detect(&:ipv4_private?)&.ip_address
   end
 
   # GET /places/1
