@@ -54,6 +54,7 @@ $(document).ready(function(){
        lon: lon,
        ip: gon.ip,
        picture: picture,
+       user_id: gon.current_user_id
      }
    };
    if(lat == ''&& lon == ''){
@@ -92,9 +93,9 @@ $(document).ready(function(){
      });
    }
  })
-   $("#turnon").click(function(){
-     configure();
-   });
+   // $("#turnon").click(function(){
+   //   configure();
+   // });
    $("#capture").click(function(){
      capture_webcam();
    });

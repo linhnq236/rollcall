@@ -7,9 +7,9 @@ class PlacesController < ApplicationController
   # GET /places.json
   def index
     @places = Place.all
-    gon.ip = request.remote_ip
-    @ip_client = remote_ip()
-    # location = Socket.ip_address_list.detect(&:ipv4_private?)&.ip_address
+    if current_user.present?
+      gon.current_user_id = @current_user.id
+    end
   end
   # GET /places/1
   # GET /places/1.json
@@ -79,6 +79,6 @@ class PlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:lat, :lon, :ip, :picture)
+      params.require(:place).permit(:lat, :lon, :ip, :picture, :user_id)
     end
 end

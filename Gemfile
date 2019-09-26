@@ -33,6 +33,7 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'rmagick'
+gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

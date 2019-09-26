@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
   def remote_ip
     if request.remote_ip == '127.0.0.1'
       # Hard coded remote address
