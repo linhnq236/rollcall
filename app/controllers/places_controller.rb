@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  require "base64"
+
   # GET /places
   # GET /places.json
   def index
@@ -9,7 +11,6 @@ class PlacesController < ApplicationController
     @ip_client = remote_ip()
     # location = Socket.ip_address_list.detect(&:ipv4_private?)&.ip_address
   end
-
   # GET /places/1
   # GET /places/1.json
   def show
@@ -28,7 +29,12 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = Place.new(place_params)
-
+    data = @place.picture
+    image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
+    name = rand(1000..10000)
+    new_file=File.new("#{Rails.root}/public/images/#{name}.png", 'wb')
+    new_file.write(image_data)
+    @place = Place.new(place_params.merge(:picture => name))
     respond_to do |format|
       if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
@@ -70,8 +76,9 @@ class PlacesController < ApplicationController
       @place = Place.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
-      params.require(:place).permit(:lat, :lon, :ip)
+      params.require(:place).permit(:lat, :lon, :ip, :picture)
     end
 end
