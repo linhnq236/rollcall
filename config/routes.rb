@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  devise_for :users, :path_names => {
+           :sign_in => 'login', :sign_out => 'logout',
+           :password => 'secret', :confirmation => 'verification',
+           registration: 'register', edit: 'edit/profile'
+         }
   resources :places
   root "places#index"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,5 @@
+<% if current_user.present? %>
+  <%= render 'layouts/share/menu_login' %>
+<% else %>
+   <%= render 'layouts/share/menu' %>
+<% end %>

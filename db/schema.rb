@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_26_062436) do
+ActiveRecord::Schema.define(version: 2019_09_26_143917) do
 
-  create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "lat"
     t.string "lon"
     t.datetime "created_at", precision: 6, null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_09_26_062436) do
     t.integer "failed_attempts", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin"
+    t.boolean "user"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

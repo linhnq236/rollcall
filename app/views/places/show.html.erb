@@ -1,4 +1,4 @@
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&center=#{@place.lat},#{@place.lon}&key=AIzaSyA-O99SbzBwskJ_xxezFW091sXuPiHb3A8", alt: "Map" %>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@place.lat},#{@place.lon}&markers=#{@place.lat},#{@place.lon}&zoom=15&size=640x400&key=AIzaSyDGcN2RkUpo6gTF9jPwq232fl1CHfESwPg", alt: "Map" %>
 <%= image_tag "/images/#{@place.picture}.png" %>
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
