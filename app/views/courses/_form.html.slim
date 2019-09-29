@@ -1,0 +1,25 @@
+= form_for @course do |f|
+  - if @course.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@course.errors.count, "error")} prohibited this course from being saved:"
+      ul
+        - @course.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :course_name
+    = f.text_field :course_name
+  .field
+    = f.label :content
+    = f.text_area :content
+    - @teachers.each do |t|
+        .field
+        select name = "course[teacher_id]"
+          option[value = t.id] = t.teacher_name
+  .field
+    = f.label :Start
+    = f.date_select(:start)
+  .field
+    = f.label :End
+    = f.date_select(:end)
+  .actions = f.submit
