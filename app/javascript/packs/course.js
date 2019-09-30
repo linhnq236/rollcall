@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  $("#course").click(function(){
+    location.reload();
+    console.log("a");
+  })
   $(".reg").click(function(){
     var $button_reg = $(this);
 
@@ -19,4 +23,6 @@ $(document).ready(function(){
      }
    })
  });
+
+
 });

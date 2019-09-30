@@ -11,10 +11,15 @@ class PlacesController < ApplicationController
       gon.current_user_id = @current_user.id
     end
   end
+
+  def get_all
+    
+  end
   # GET /places/1
   # GET /places/1.json
   def show
     @key = Apikey.first.name
+
   end
 
   # GET /places/new

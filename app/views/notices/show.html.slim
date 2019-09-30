@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Notice name:
+  = @notice.notice_name
+p
+  strong Content:
+  = @notice.content
+p
+  strong Start:
+  = @notice.start
+p
+  strong End:
+  = @notice.end
+
+=> link_to 'Edit', edit_notice_path(@notice)
+'|
+=< link_to 'Back', notices_path

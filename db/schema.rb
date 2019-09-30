@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_201108) do
+ActiveRecord::Schema.define(version: 2019_09_30_062522) do
 
   create_table "apikeys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -28,7 +28,17 @@ ActiveRecord::Schema.define(version: 2019_09_29_201108) do
     t.bigint "teacher_id", null: false
     t.date "start"
     t.date "end"
+    t.string "date"
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
+
+  create_table "notices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "notice_name"
+    t.string "content"
+    t.date "start"
+    t.date "end"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "places", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
