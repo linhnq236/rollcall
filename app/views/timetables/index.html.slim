@@ -1,0 +1,8 @@
+h1 Time Table
+
+= month_calendar events: @timetables, attribute: :start_time  do |date, timetables|
+    = date.to_formatted_s(:short)
+    - date.inspect
+    - timetables.each do |timetable|
+      div = timetable.course_name
+      div = timetable.room_name

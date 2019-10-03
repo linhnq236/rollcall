@@ -12,10 +12,10 @@
   .field
     = f.label :content
     = f.text_area :content
-    - @teachers.each do |t|
-        .field
-        select name = "course[teacher_id]"
-          option[value = t.id] = t.teacher_name
+    .field
+    select name = "course[teacher_id]"
+      - @teachers.each do |t|
+            option[value = t.id] = t.teacher_name
   .field
     = f.label :Start
     = f.date_select(:start)

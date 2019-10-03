@@ -32,6 +32,9 @@
 en:
   hello: "Hello word!"
   rollcall: "Roll call"
+  department:
+    it: "Informatin Technology"
+    ec: "Economic"
   message:
     content: "You should turn on GPS !"
   date:

@@ -23,5 +23,11 @@ table
         td = link_to 'Destroy', usercourse, data: { confirm: 'Are you sure?' }, method: :delete
 
 br
+= week_calendar events: @usercourses, attribute: :start  do |date, usercourses|
+    - date.to_formatted_s(:short)
+    = date.inspect
+    - usercourses.each do |usercourse|
+            div = usercourse.course_name
+            div = usercourse.teacher_name
 
 = link_to 'New Usercourse', new_usercourse_path
