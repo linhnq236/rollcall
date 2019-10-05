@@ -12,11 +12,8 @@ class UsercoursesController < ApplicationController
   # GET /usercourses/1.json
   def show
   end
-  def week_learn
-    @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
-  end
-  def user_register_course
 
+  def user_register_course
     @usercourses = Course.joins(:usercourses).joins(:teacher).where(:usercourses => {user_id: current_user.id}).select("usercourses.*, courses.*, teachers.*")
   end
 

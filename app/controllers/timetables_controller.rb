@@ -6,8 +6,14 @@ class TimetablesController < ApplicationController
   def index
     # @start_date = params[:start_date].inspect || Time.now
     @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
+    @start_date = params[:start_date]
     @teachers = Teacher.all
   end
+
+  def week
+   @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
+   @usercourses = Usercourse.where(user_id: current_user.id).select("usercourses.course_id")
+ end
 
   # GET /timetables/1
   # GET /timetables/1.json

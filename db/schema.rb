@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_072132) do
+ActiveRecord::Schema.define(version: 2019_10_05_175820) do
 
   create_table "apikeys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -77,10 +77,12 @@ ActiveRecord::Schema.define(version: 2019_10_03_072132) do
   end
 
   create_table "usercourses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "course_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["course_id"], name: "index_usercourses_on_course_id"
+    t.index ["user_id"], name: "index_usercourses_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -111,4 +113,6 @@ ActiveRecord::Schema.define(version: 2019_10_03_072132) do
   add_foreign_key "courses", "teachers"
   add_foreign_key "timetables", "courses"
   add_foreign_key "timetables", "rooms"
+  add_foreign_key "usercourses", "courses"
+  add_foreign_key "usercourses", "users"
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :timetables
   get "/user_timetable" => "timetables#index"
   get "/admin_timetable" => "timetables#index"
+  get "/week_learn" => "timetables#week"
   devise_for :users
   resources :notices
   resources :rooms
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
   resources :places
   resources :apikeys
   get "/register_course" => "courses#index"
-  get "/week_learn" => "usercourses#week_learn"
   get "/user_register_course" => "usercourses#user_register_course"
   root "courses#index"
 
