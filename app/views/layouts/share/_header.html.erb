@@ -1,7 +1,7 @@
 <% if current_user.present? %>
-  <% if current_user.admin == true %>
+  <% if current_admin.admin == 1 %>
     <%= render 'layouts/share/menu_admin' %>
-  <% else %>
+  <% elsif current_user.admin == 0 %>
     <%= render 'layouts/share/menu_login' %>
   <% end %>
 <% else %>

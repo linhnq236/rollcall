@@ -85,6 +85,7 @@ GEM
       mimemagic (~> 0.3.2)
     childprocess (2.0.0)
       rake (< 13.0)
+    coffee-script-source (1.4.0)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     devise (4.7.1)
@@ -309,6 +310,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   carrierwave-base64
+  coffee-script-source (~> 1.4.0)
   devise
   figaro
   fullcalendar-rails

@@ -36,7 +36,8 @@ gem 'rmagick'
 gem 'devise'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem "simple_calendar", "~> 2.0"
+gem 'simple_calendar', '~> 2.0'
+gem 'coffee-script-source', '~> 1.4.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
