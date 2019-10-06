@@ -1,4 +1,12 @@
 vn:
   rollcall: "Điểm danh"
+  department:
+    it: "Công nghệ thông tin"
+    ec: "Kinh tế vận tải"
   message:
     content: "Hãy cho phép định vị GPS !"
+  date:
+  layout:
+    student: "Sinh viên"
+    admin: "Quản trị viên"
+    teacher: "Giảng viên"
