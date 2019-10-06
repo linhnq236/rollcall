@@ -49,3 +49,7 @@ en:
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
+  layout:
+    student: "Student"
+    admin: "Admin"
+    teacher: "Teacher"

@@ -15,3 +15,37 @@
  *= require simple_calendar
 
  */
+/* banner  */
+body{
+  background: #95daf1 !important;
+}
+.container{
+  background: white;
+  height: auto;
+}
+.banner{
+  width: 100%;
+  height: fit-content;
+}
+/* slide bar search */
+#search{
+  float: right;
+}
+input[type=text], .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding: 6px;
+    float: left;
+  }
+
+ footer {
+    /* position: fixed; */
+    /* left: 0; */
+    /* bottom: 0; */
+    width: 100%;
+    background-color: #4f82cc;
+    color: white;
+    text-align: center;
+ }

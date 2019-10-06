@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Admin</a>
+  <a class="navbar-brand" href="#"><%= t('layout.admin')%></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,7 +10,7 @@
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <%= link_to('calendar', user_timetable_path,  class: "nav-link") %>
       </li>
       <li class="nav-item">
       </li>
@@ -19,7 +19,7 @@
       Setting
       </a>
       <div class="dropdown-menu">
-         <%= link_to('Profile', edit_user_registration_path,  class: "dropdown-item") %>
+        <%= link_to('Profile', edit_user_registration_path,  class: "dropdown-item") %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
       </div>
     </li>
