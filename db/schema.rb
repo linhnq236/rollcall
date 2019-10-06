@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_175820) do
+ActiveRecord::Schema.define(version: 2019_10_08_080517) do
 
   create_table "apikeys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -48,7 +48,8 @@ ActiveRecord::Schema.define(version: 2019_10_05_175820) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "ip"
     t.string "picture"
-    t.integer "user_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_places_on_user_id"
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -103,7 +104,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_175820) do
     t.integer "failed_attempts", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin", default: false
+    t.integer "admin", default: 0
     t.boolean "user", default: false
     t.integer "department_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -111,6 +112,7 @@ ActiveRecord::Schema.define(version: 2019_10_05_175820) do
   end
 
   add_foreign_key "courses", "teachers"
+  add_foreign_key "places", "users"
   add_foreign_key "timetables", "courses"
   add_foreign_key "timetables", "rooms"
   add_foreign_key "usercourses", "courses"

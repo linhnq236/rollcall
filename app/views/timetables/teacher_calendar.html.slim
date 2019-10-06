@@ -9,8 +9,4 @@ h1 WEEK CALENDAR
               = timetable.course_name + ' - '
               = timetable.room_name
               - if date.day == @current_day
-                button#rollcall = t('rollcall')
-                button#capture = t('take')
-                div#results
-                div#my_camera
-= javascript_pack_tag 'places', 'data-turbolinks-track': 'reload'
+                button#rollcall = t('teacher.detail')

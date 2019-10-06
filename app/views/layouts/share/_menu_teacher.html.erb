@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#"><%= t('layout.admin')%></a>
+  <a class="navbar-brand" href="#"><%= t('layout.teacher')%></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,7 +10,10 @@
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <%= link_to('calendar', admin_timetable_path,  class: "nav-link") %>
+        <%= link_to("#{ I18n.t('teacher.calendar')}", teacher_timetable_path,  class: "nav-link") %>
+      </li>
+      <li class="nav-item">
+        <%= link_to("#{ I18n.t('teacher.myclass')}", teacher_timetable_path,  class: "nav-link") %>
       </li>
       <li class="nav-item">
       </li>
@@ -19,8 +22,8 @@
       Setting
       </a>
       <div class="dropdown-menu">
-        <%= link_to('Profile', edit_user_registration_path,  class: "dropdown-item") %>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+        <%= link_to("#{ I18n.t('layout.edit')}", edit_user_registration_path,  class: "dropdown-item") %>
+        <%= link_to("#{ I18n.t('layout.logout')}", destroy_user_session_path, method: :delete, class: "dropdown-item") %>
       </div>
     </li>
     <li id='search'>

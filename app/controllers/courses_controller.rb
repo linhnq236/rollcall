@@ -4,7 +4,11 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.joins(:teacher).select("courses.*, teachers.*, courses.id")
+    if params[:search].present?
+      @courses = Course.search(params[:search]).joins(:teacher).select("courses.*, teachers.*, courses.id").order("courses.created_at DESC")
+    else
+      @courses = Course.joins(:teacher).select("courses.*, teachers.*, courses.id").order("courses.created_at DESC")
+    end
   end
 
   # GET /courses/1

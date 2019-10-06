@@ -22,8 +22,8 @@ $(document).ready(function(){
   // ========================================
   function configure(){
    Webcam.set({
-    width: 320,
-    height: 240,
+    width: 250,
+    height: 200,
     image_format: 'jpeg',
     jpeg_quality: 90
    });
@@ -69,6 +69,7 @@ $(document).ready(function(){
            btnClass: "btn-red",
            action: function(){
              alert('Roll call failed !');
+             location.reload();
            }
          },
          Confirm: {

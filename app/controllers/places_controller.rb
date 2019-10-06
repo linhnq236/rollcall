@@ -13,7 +13,7 @@ class PlacesController < ApplicationController
   end
 
   def get_all
-    
+
   end
   # GET /places/1
   # GET /places/1.json
