@@ -11,6 +11,19 @@ class TimetablesController < ApplicationController
   end
 
   def week
+   @current_day = Time.now.day
+   if current_user.present?
+     gon.current_user_id = @current_user.id
+   end
+   @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
+   @usercourses = Usercourse.where(user_id: current_user.id).select("usercourses.course_id")
+ end
+
+  def teacher_calendar
+   @current_day = Time.now.day
+   if current_user.present?
+     gon.current_user_id = @current_user.id
+   end
    @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
    @usercourses = Usercourse.where(user_id: current_user.id).select("usercourses.course_id")
  end

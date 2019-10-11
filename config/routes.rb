@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :timetables
-  get "/user_timetable" => "timetables#index"
+  get "/teacher_timetable" => "timetables#teacher_calendar"
   get "/admin_timetable" => "timetables#index"
-  get "/week_learn" => "timetables#week"
+  get "/student_timetable" => "timetables#week"
   devise_for :users
   resources :notices
   resources :rooms

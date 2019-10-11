@@ -32,6 +32,7 @@
 en:
   hello: "Hello word!"
   rollcall: "Roll call"
+  take: "take "
   department:
     it: "Informatin Technology"
     ec: "Economic"
@@ -49,3 +50,15 @@ en:
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
+  layout:
+    student: "Student"
+    admin: "Admin"
+    teacher: "Teacher"
+    edit: "Edit"
+    logout: "Logout"
+  teacher:
+    myclass: "My class"
+    calendar: "Calendar"
+    detail: "Detail"
+  student:
+  admin:

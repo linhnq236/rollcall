@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#"><%= t('layout.student') %></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,16 +10,10 @@
         <%= link_to('Courses', register_course_path,  class: "nav-link", id: "course") %>
       </li>
       <li class="nav-item">
-        <%= link_to('Notices', register_course_path,  class: "nav-link") %>
-      </li>
-      <li class="nav-item">
         <%= link_to('My course', user_register_course_path,  class: "nav-link") %>
       </li>
       <li class="nav-item">
-        <%= link_to('Week calendar', week_learn_path,  class: "nav-link") %>
-      </li>
-      <li class="nav-item">
-        <%= link_to('calendar', user_timetable_path,  class: "nav-link") %>
+        <%= link_to('Week calendar', student_timetable_path,  class: "nav-link") %>
       </li>
       <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -28,6 +22,14 @@
       <div class="dropdown-menu">
          <%= link_to('Profile', edit_user_registration_path,  class: "dropdown-item") %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
+      </div>
+    </li>
+    <li id='search'>
+      <div class="search-container">
+        <form action="">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
       </div>
     </li>
     </ul>
