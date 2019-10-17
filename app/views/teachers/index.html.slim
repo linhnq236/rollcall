@@ -3,8 +3,7 @@ h1 Listing teachers
 table
   thead
     tr
-      th Teacher code
-      th Name
+      th Teacher name
       th
       th
       th
@@ -12,7 +11,6 @@ table
   tbody
     - @teachers.each do |teacher|
       tr
-        td = teacher.teacher_code
         td = teacher.teacher_name
         td = link_to 'Show', teacher
         td = link_to 'Edit', edit_teacher_path(teacher)

@@ -5,7 +5,6 @@ table
     tr
       th Name
       th Content
-      th Teacher
       th Start
       th End
       th
@@ -17,7 +16,6 @@ table
       tr
         td = course.course_name
         td = course.content
-        td = course.teacher_name
         td = course.start
         td = course.end
         td = link_to 'Show', course
@@ -25,4 +23,4 @@ table
          button class = "reg" data-id = course.id = 'register'
 
 br
-= javascript_pack_tag 'course', 'data-turbolinks-track': 'reload' 
+= javascript_pack_tag 'course', 'data-turbolinks-track': 'reload'

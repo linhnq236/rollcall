@@ -7,7 +7,7 @@ class TimetablesController < ApplicationController
     # @start_date = params[:start_date].inspect || Time.now
     @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
     @start_date = params[:start_date]
-    @teachers = Teacher.all
+    # @teachers = Teacher.all
   end
 
   def week
@@ -18,14 +18,16 @@ class TimetablesController < ApplicationController
    @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
    @usercourses = Usercourse.where(user_id: current_user.id).select("usercourses.course_id")
  end
-
+#
   def teacher_calendar
    @current_day = Time.now.day
    if current_user.present?
      gon.current_user_id = @current_user.id
    end
-   @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*")
-   @usercourses = Usercourse.where(user_id: current_user.id).select("usercourses.course_id")
+   @timetables = Timetable.joins(:room, :course, :user).select("rooms.*,courses.*,timetables.*, users.*,timetables.course_id").where(:user_id => current_user.id)
+ end
+ def teacher_class
+   @timetables = Timetable.joins(:room, :course).select("rooms.*,courses.*,timetables.*").where(:user_id => current_user.id)
  end
 
   # GET /timetables/1
@@ -38,6 +40,7 @@ class TimetablesController < ApplicationController
     @timetable = Timetable.new
     @rooms = Room.all
     @courses = Course.all
+    @users = User.where(:admin=>1)
   end
 
   # GET /timetables/1/edit
@@ -91,6 +94,6 @@ class TimetablesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timetable_params
-      params.require(:timetable).permit(:course_id, :room_id, :start_time, :end_time)
+      params.require(:timetable).permit(:course_id, :room_id, :start_time, :end_time, :user_id)
     end
 end

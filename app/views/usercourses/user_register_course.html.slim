@@ -15,7 +15,6 @@ table
       tr
         td = usercourse.course_name
         td = usercourse.content
-        td = usercourse.teacher_name
         td = usercourse.start
         td = usercourse.end
         td = link_to 'Show', usercourse
@@ -28,6 +27,5 @@ br
     = date.inspect
     - usercourses.each do |usercourse|
             div = usercourse.course_name
-            div = usercourse.teacher_name
 
 = link_to 'New Usercourse', new_usercourse_path

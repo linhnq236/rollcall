@@ -13,8 +13,12 @@ class UsercoursesController < ApplicationController
   def show
   end
 
+  def showAllClassTeacher
+      @usercourses = Usercourse.where(:course_id=>params['course_id'])
+  end
+
   def user_register_course
-    @usercourses = Course.joins(:usercourses).joins(:teacher).where(:usercourses => {user_id: current_user.id}).select("usercourses.*, courses.*, teachers.*")
+    @usercourses = Course.joins(:usercourses).where(:usercourses => {user_id: current_user.id}).select("usercourses.*, courses.*")
   end
 
   # GET /usercourses/new

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_080517) do
+ActiveRecord::Schema.define(version: 2019_10_17_182354) do
 
   create_table "apikeys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -25,11 +25,16 @@ ActiveRecord::Schema.define(version: 2019_10_08_080517) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "code"
     t.string "time"
-    t.bigint "teacher_id", null: false
     t.date "start"
     t.date "end"
     t.string "date"
-    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
+  end
+
+  create_table "equipment", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "equiqment_name"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "notices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,13 +64,6 @@ ActiveRecord::Schema.define(version: 2019_10_08_080517) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "teacher_code"
-    t.string "teacher_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "timetables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -73,8 +71,10 @@ ActiveRecord::Schema.define(version: 2019_10_08_080517) do
     t.bigint "course_id", null: false
     t.datetime "start_time"
     t.datetime "end_time"
+    t.bigint "user_id", null: false
     t.index ["course_id"], name: "index_timetables_on_course_id"
     t.index ["room_id"], name: "index_timetables_on_room_id"
+    t.index ["user_id"], name: "index_timetables_on_user_id"
   end
 
   create_table "usercourses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -107,14 +107,15 @@ ActiveRecord::Schema.define(version: 2019_10_08_080517) do
     t.integer "admin", default: 0
     t.boolean "user", default: false
     t.integer "department_id"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "courses", "teachers"
   add_foreign_key "places", "users"
   add_foreign_key "timetables", "courses"
   add_foreign_key "timetables", "rooms"
+  add_foreign_key "timetables", "users"
   add_foreign_key "usercourses", "courses"
   add_foreign_key "usercourses", "users"
 end

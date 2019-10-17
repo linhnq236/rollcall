@@ -10,7 +10,11 @@
   select name = "timetable[course_id]"
     - @courses.each do |t|
           option[value = t.id] = t.course_name
-
+  .field
+  = f.label :Teacher
+  select name = "timetable[user_id]"
+    - @users.each do |t|
+          option[value = t.id] = t.name
   .field
   = f.label :Room
   select name = "timetable[room_id]"

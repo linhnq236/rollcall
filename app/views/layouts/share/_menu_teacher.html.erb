@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#"><%= t('layout.teacher')%></a>
+  <a class="navbar-brand" href="#"><%= current_user.name%></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,10 +10,10 @@
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
-        <%= link_to("#{ I18n.t('teacher.calendar')}", teacher_timetable_path,  class: "nav-link") %>
+        <%= link_to("#{ I18n.t('teacher.myclass')}", my_class_path,  class: "nav-link") %>
       </li>
       <li class="nav-item">
-        <%= link_to("#{ I18n.t('teacher.myclass')}", teacher_timetable_path,  class: "nav-link") %>
+        <%= link_to("#{ I18n.t('teacher.calendar')}", teacher_timetable_path,  class: "nav-link") %>
       </li>
       <li class="nav-item">
       </li>
