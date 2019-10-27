@@ -47,6 +47,7 @@ $(document).ready(function(){
  // ==========================================================
  $("#rollcall").click(function(){
    configure();
+   var course_id = $(this).data("course_id");
    var picture = savePic();
    rollcallData = {
      place:{
@@ -54,9 +55,11 @@ $(document).ready(function(){
        lon: lon,
        ip: gon.ip,
        picture: picture,
-       user_id: gon.current_user_id
+       user_id: gon.current_user_id,
+       course_id: course_id,
      }
    };
+   console.log(rollcallData);
    if(lat == ''&& lon == ''){
        $.confirm({
        title: false,

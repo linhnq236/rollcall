@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_182354) do
+ActiveRecord::Schema.define(version: 2019_10_25_140158) do
 
   create_table "apikeys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,10 +24,15 @@ ActiveRecord::Schema.define(version: 2019_10_17_182354) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "code"
-    t.string "time"
     t.date "start"
     t.date "end"
-    t.string "date"
+  end
+
+  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "department_code"
+    t.string "department_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "equipment", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_10_17_182354) do
     t.string "ip"
     t.string "picture"
     t.bigint "user_id", null: false
+    t.integer "course_id"
+    t.boolean "status"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
@@ -105,7 +112,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_182354) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "admin", default: 0
-    t.boolean "user", default: false
     t.integer "department_id"
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true

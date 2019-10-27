@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <a class="navbar-brand" href="#"><%= current_user.name%> %></a>
+  <%= link_to("#{current_user.name}", edit_user_path,  class: "nav-link") %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -20,14 +20,15 @@
       Setting
       </a>
       <div class="dropdown-menu">
-         <%= link_to('Profile', edit_user_registration_path,  class: "dropdown-item") %>
+         <%= link_to('Profile', profile_path,  class: "dropdown-item") %>
+         <%= link_to('ChangePassword', edit_user_registration_path,  class: "dropdown-item") %>
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "dropdown-item") %>
       </div>
     </li>
     <li id='search'>
       <div class="search-container">
         <form action="">
-          <input type="text" placeholder="Search.." name="search">
+          <input type="text" placeholder="Search.." name="search" class="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>

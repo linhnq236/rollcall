@@ -1,0 +1,5 @@
+<%= form_tag("/agency_admin/tenants", method: "get") do %>
+  Name: <%= text_field_tag :name, params[:name], value:"#{@user.name}"%><br>
+  Department: <%= text_field_tag :department_id, params[:department_id], value:"#{}"%><br>
+  <%= submit_tag "Search", class:"tenants-list-search-submit" %>
+<% end %>

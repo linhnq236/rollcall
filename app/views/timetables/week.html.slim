@@ -9,7 +9,7 @@ h1 WEEK CALENDAR
               = timetable.course_name + ' - '
               = timetable.room_name
               - if date.day == @current_day
-                button#rollcall = t('rollcall')
+                button#rollcall  data-course_id= timetable.course_id = t('rollcall')
                 button#capture = t('take')
                 div#results
                 div#my_camera

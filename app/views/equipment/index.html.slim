@@ -4,7 +4,7 @@ table
   thead
     tr
       th Equiqment name
-      th Active
+      th Controller led
       th
       th
       th
@@ -13,7 +13,7 @@ table
     - @equipment.each do |equipment|
       tr
         td = equipment.equiqment_name
-        td = equipment.active
+        td#turn data-led_id = equipment.id = equipment.active == true ? "On" : "OFF"
         td = link_to 'Show', equipment
         td = link_to 'Edit', edit_equipment_path(equipment)
         td = link_to 'Destroy', equipment, data: { confirm: 'Are you sure?' }, method: :delete

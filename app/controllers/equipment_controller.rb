@@ -2,8 +2,18 @@ class EquipmentController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
   # GET /equipment
   # GET /equipment.json
+  require "dino_blink"
+
   def index
     @equipment = Equipment.all
+    board = Dino::Board.new(Dino::TxRx.new)
+    led = Dino::Components::Led.new(pin: 13, board: board)
+    led1 = Dino::Components::Led.new(pin: 14, board: board)
+    led2 = Dino::Components::Led.new(pin: 15, board: board)
+    # blink(led,1)
+    # # blink(led1,1)
+    # warn(led1,60)
+    # blink(led,12)
   end
 
   # GET /equipment/1

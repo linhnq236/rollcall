@@ -31,14 +31,22 @@ body{
 #search{
   float: right;
 }
-input[type=text], .search-container button {
+.search, .search-container button {
     float: none;
     display: block;
     text-align: left;
     margin: 0;
     padding: 6px;
-    float: left;
+    float: left !important;
+
   }
+input[type=text], input[type=password]{
+  float: none;
+  display: block;
+  text-align: left;
+  margin: 0;
+  padding: 6px;
+}
 
  footer {
     /* position: fixed; */

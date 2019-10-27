@@ -60,5 +60,6 @@ en:
     myclass: "My class"
     calendar: "Calendar"
     detail: "Detail"
+    equipment: "Equipment"
   student:
   admin:
