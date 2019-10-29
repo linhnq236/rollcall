@@ -1,5 +1,7 @@
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+
   # GET /equipment
   # GET /equipment.json
   require "dino_blink"
@@ -10,10 +12,18 @@ class EquipmentController < ApplicationController
     led = Dino::Components::Led.new(pin: 13, board: board)
     led1 = Dino::Components::Led.new(pin: 14, board: board)
     led2 = Dino::Components::Led.new(pin: 15, board: board)
-    # blink(led,1)
-    # # blink(led1,1)
-    # warn(led1,60)
-    # blink(led,12)
+    @equipment.each do |q|
+        if q.active == true
+          case q.id
+          when 1
+            blink(led,1)
+          when 2
+            blink(led1,1)
+          when 3
+            blink(led2,1)
+          end
+      end
+    end
   end
 
   # GET /equipment/1
@@ -52,7 +62,7 @@ class EquipmentController < ApplicationController
   def update
     respond_to do |format|
       if @equipment.update(equipment_params)
-        format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
+        format.html { redirect_to controller_equipment_path, notice: 'Equipment was successfully updated.' }
         format.json { render :show, status: :ok, location: @equipment }
       else
         format.html { render :edit }
@@ -79,6 +89,6 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:equiqment_name, :active)
+      params.require(:equipment).permit(:equiqment_name, :active, :warn)
     end
 end

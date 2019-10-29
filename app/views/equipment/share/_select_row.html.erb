@@ -1,0 +1,6 @@
+<%= form_tag('/agency_admin/tenants', method: :get, id: "changePage") do %>
+    <%= select_tag 'per_page',
+      options_for_select([["Level 1","1"], ["Level 2","25"], ["Level 4","50"]], selected: params[:per_page]),
+      {onchange: "$('#changePage').submit();" }
+    %>
+  <% end %>
