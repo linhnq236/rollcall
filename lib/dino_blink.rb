@@ -12,16 +12,6 @@ def blink led, active
 			led.send(:off)
 		end
 end
-def warn led, c
-	c.times do
-		led.send(:on)
-		sleep 0.1
-		led.send(:off)
-		sleep 0.1
-	end
-end
-
-
 # puts "Chon den led sang: ";
 # leds = gets
 # puts "Chon che do sang: ";

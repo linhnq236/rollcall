@@ -15,12 +15,7 @@ table
       tr
         td = equipment.equiqment_name
         td.turn data-id = equipment.id = equipment.active == true ? "On" : "OFF"
-        td
-           = form_tag "/equipment/1", method: :get, id:'change' do
-            = select_tag 'warn',
-              options_for_select([["Level 1","1"], ["Level 2","25"], ["Level 3","50"]], selected: params[:per_page]),
-              {onchange: "$('#change').submit();" }
-           end
+
 br
 
 = link_to 'New Equipment', new_equipment_path

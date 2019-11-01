@@ -51,15 +51,40 @@ en:
     am: "am"
     pm: "pm"
   layout:
-    student: "Student"
-    admin: "Admin"
-    teacher: "Teacher"
-    edit: "Edit"
-    logout: "Logout"
-  teacher:
-    myclass: "My class"
-    calendar: "Calendar"
-    detail: "Detail"
-    equipment: "Equipment"
-  student:
-  admin:
+    student: "STUDENT"
+    admin: "ADMIN"
+    teacher: "TEACHER"
+    setting: "SETTING"
+    changepassword: "CHANGPASSWORD"
+    logout: "LOGOUT"
+    previous: "Previous"
+    next: "Next"
+    login_title: "LOGIN"
+    signup: "Sign up"
+    email: "Email"
+    password: "Password"
+    remember: "Remember me"
+    forgot: "Forgot your password ?"
+
+  button:
+    login: "Log in"
+  menu:
+    student:
+      course: "COURSE"
+      mycourse: "MY COURSE"
+      weekcalendar: "WEEK CALENDAR"
+      timetable:
+        title: "WEEK CALENDAR"
+      courses:
+        title: "LISTING COURSES"
+        name: "Name"
+        content: "Content"
+        start: "Start"
+        end: "End"
+        show: "Detail"
+        register: "Register"
+    teacher:
+      myclass: "MY CLASS"
+      calendar: "WEEK CALENDAR"
+      detail: "Detail"
+      equipment: "EQUIPMENT"

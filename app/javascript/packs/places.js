@@ -65,7 +65,7 @@ $(document).ready(function(){
        title: false,
        offsetTop: 20,
        columnClass: "col-md-6 col-md-offset-3 popup-rollcall",
-       content: 'You should turn on GPS!',
+       content:  "#{I18n.t 'hello'}",
        closeIcon: true,
        buttons: {
          Cancel:{

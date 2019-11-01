@@ -1,4 +1,5 @@
 class EquipmentController < ApplicationController
+  before_action :check_admin, only: [:index, :show, :edit, :update, :destroy, :new]
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -13,15 +14,16 @@ class EquipmentController < ApplicationController
     led1 = Dino::Components::Led.new(pin: 14, board: board)
     led2 = Dino::Components::Led.new(pin: 15, board: board)
     @equipment.each do |q|
-        if q.active == true
-          case q.id
-          when 1
-            blink(led,1)
-          when 2
-            blink(led1,1)
-          when 3
-            blink(led2,1)
-          end
+
+    if q.active == true
+      case q.id
+        when 1
+          blink(led,1)
+        when 2
+          blink(led1,1)
+        when 3
+          blink(led2,1)
+        end
       end
     end
   end
@@ -86,9 +88,17 @@ class EquipmentController < ApplicationController
     def set_equipment
       @equipment = Equipment.find(params[:id])
     end
+    def check_admin
+      if current_user.admin == 1
+      elsif current_user.admin == 0
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:equiqment_name, :active, :warn)
+      params.require(:equipment).permit(:equiqment_name, :active, :warn_led)
     end
 end

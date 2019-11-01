@@ -26,6 +26,19 @@ body{
 .banner{
   width: 100%;
   height: fit-content;
+  min-height: 400px;
+}
+.sub-banner{
+  position: relative;
+}
+.flag{
+  position: absolute;
+  top: 4%;
+  right: 35%;
+}
+.sub-flag {
+  width: 5%;
+  height: 30px;
 }
 /* slide bar search */
 #search{

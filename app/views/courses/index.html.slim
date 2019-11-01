@@ -1,12 +1,12 @@
-h1 Listing courses
+h1 = I18n.t('menu.student.courses.title')
 
 table
   thead
     tr
-      th Name
-      th Content
-      th Start
-      th End
+      th = I18n.t('menu.student.courses.name')
+      th = I18n.t('menu.student.courses.content')
+      th = I18n.t('menu.student.courses.start')
+      th = I18n.t('menu.student.courses.end')
       th
       th
       th
@@ -18,9 +18,9 @@ table
         td = course.content
         td = course.start
         td = course.end
-        td = link_to 'Show', course
+        td = link_to "#{I18n.t('menu.student.courses.show')}", course
         td
-         button class = "reg" data-id = course.id = 'register'
+         button class = "reg" data-id = course.id = "#{I18n.t('menu.student.courses.register')}"
 
 br
 = javascript_pack_tag 'course', 'data-turbolinks-track': 'reload'
