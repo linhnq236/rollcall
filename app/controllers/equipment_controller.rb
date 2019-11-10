@@ -8,6 +8,8 @@ class EquipmentController < ApplicationController
   require "dino_blink"
 
   def index
+    current_time = Time.now.strftime("%Y-%m-%d %H:%M")
+    current_time_to_i = convert_string_to_int(current_time)
     @equipment = Equipment.all
     board = Dino::Board.new(Dino::TxRx.new)
     led = Dino::Components::Led.new(pin: 13, board: board)
@@ -19,6 +21,10 @@ class EquipmentController < ApplicationController
       case q.id
         when 1
           blink(led,1)
+          if convert_string_to_int(q.timer) == current_time_to_i
+            blink(led,4)
+          else
+          end
         when 2
           blink(led1,1)
         when 3
@@ -99,6 +105,9 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:equiqment_name, :active, :warn_led)
+      params.require(:equipment).permit(:equiqment_name, :active, :timer)
+    end
+    def convert_string_to_int datetime
+      return datetime.to_i
     end
 end

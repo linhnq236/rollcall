@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require simple_calendar
-
+ *= require bootstrap-datepicker
  */
 /* banner  */
 body{
@@ -40,6 +40,11 @@ body{
   width: 5%;
   height: 30px;
 }
+.menu{
+  position: sticky !important;
+  top: 0px;
+
+}
 /* slide bar search */
 #search{
   float: right;
@@ -61,7 +66,7 @@ input[type=text], input[type=password]{
   padding: 6px;
 }
 
- footer {
+ footer.container{
     /* position: fixed; */
     /* left: 0; */
     /* bottom: 0; */
@@ -69,4 +74,10 @@ input[type=text], input[type=password]{
     background-color: #4f82cc;
     color: white;
     text-align: center;
+    margin-top: 2%;
  }
+ @media only screen and (max-width: 1000px) {
+  #search, .search, .search-container button {
+    display: none;
+  }
+}

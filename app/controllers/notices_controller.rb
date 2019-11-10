@@ -4,7 +4,17 @@ class NoticesController < ApplicationController
   # GET /notices
   # GET /notices.json
   def index
-    @notices = Notice.all
+    if current_user.admin == 0
+      @notices = Notice.where(:admin => 0 )
+    elsif current_user.admin == 1
+      @notices = Notice.where(:admin => 1 )
+    else
+      @notices = Notice.all
+    end
+  end
+
+  def notice_common
+    @notices = Notice.all.order("created_at DESC")
   end
 
   # GET /notices/1
@@ -15,17 +25,18 @@ class NoticesController < ApplicationController
   # GET /notices/new
   def new
     @notice = Notice.new
+    @users = User.select("users.admin").distinct
   end
 
   # GET /notices/1/edit
   def edit
+    @users = User.select("users.admin").distinct
   end
 
   # POST /notices
   # POST /notices.json
   def create
     @notice = Notice.new(notice_params)
-
     respond_to do |format|
       if @notice.save
         format.html { redirect_to @notice, notice: 'Notice was successfully created.' }
@@ -69,6 +80,6 @@ class NoticesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def notice_params
-      params.require(:notice).permit(:notice_name, :content, :start, :end)
+      params.require(:notice).permit(:notice_name, :content, :start, :end, :admin)
     end
 end

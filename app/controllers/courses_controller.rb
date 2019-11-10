@@ -5,9 +5,9 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     if params[:search].present?
-      @courses = Course.search(params[:search]).order("courses.created_at DESC")
+      @courses = Course.joins(:studytime).select("courses.*, studytimes.*, courses.id").search(params[:search]).order("courses.created_at DESC")
     else
-      @courses = Course.all.order("courses.created_at DESC")
+      @courses = Course.joins(:studytime).select("courses.*, studytimes.*, courses.id").order("courses.created_at DESC")
     end
   end
 
@@ -20,6 +20,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @studytimes = Studytime.all
   end
 
   # GET /courses/1/edit
@@ -73,6 +74,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:course_name, :content, :time, :start, :end, :code, :date)
+      params.require(:course).permit(:course_name, :content, :time, :start, :end, :code, :date, :studytime_id)
     end
 end

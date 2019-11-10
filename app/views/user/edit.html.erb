@@ -1,9 +1,12 @@
+<div class="form-group">
 <h1>Editing User</h1>
  <% @user.each do |u| %>
    <%= form_tag(update_path, method: "post") do %>
-     Name: <%= text_field_tag :name, params[:name], value:"#{u.name}"%><br>
-     Department:<br>
-     <%= select(params[:department_id],"department_id", @department.collect {|p| [ p.department_name, p.id, selected:"#{u.department_id}" ] }, { include_blank: true })%><br>
-     <%= submit_tag "Update", class:"tenants-list-search-submit" %>
+      <label for="usr">Name:</label>
+      <%= text_field_tag :name, params[:name], value:"#{u.name}", class: "form-control"%><br>
+      <label for="usr">Department:</label>
+      <%= select(params[:department_id],"department_id", @department.collect {|p| [ p.department_name, p.id, selected:"#{u.department_id}" ] }, { include_blank: true }, class: "form-control")%><br>
+     <%= submit_tag "Update", class: "form-control btn btn-success" %><br><br>
    <% end %>
  <% end %>
+</div>

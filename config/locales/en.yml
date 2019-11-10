@@ -65,6 +65,10 @@ en:
     password: "Password"
     remember: "Remember me"
     forgot: "Forgot your password ?"
+    home: "HOME"
+    notice_common: "NOTICE COMMON"
+    show: "Detail"
+    created_at: "Post"
 
   button:
     login: "Log in"
@@ -83,8 +87,34 @@ en:
         end: "End"
         show: "Detail"
         register: "Register"
+        studytime: "Study time"
+      notice:
+        title: "Listing notices"
+        notice_name: "Title"
+        content: "Content"
+        start: "Start"
+        end: "End"
+        notice_all: "all"
+        notice_teacher: "Teacher"
     teacher:
       myclass: "MY CLASS"
       calendar: "WEEK CALENDAR"
       detail: "Detail"
       equipment: "EQUIPMENT"
+      timetable:
+        title: "WEEK CALENDAR"
+      listequipment:
+        title: "LISTING EQUIPMENT"
+        equipmentname: "Equipment name"
+        status: "Status"
+        timer: "Timer"
+    admin:
+      add:
+        add: "ADD"
+        course: "COURSE"
+        room: "ROOM"
+        timetable: "TIMETABLE"
+        account: "ACCOUNT"
+        equipment: "EQUIPMENT"
+        notice: "NOTICE"
+        department: "DEPARTMENT"

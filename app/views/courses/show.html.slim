@@ -5,7 +5,7 @@ p
   = @course.course_name
 p
   strong Content:
-  = @course.content
+  = convert_ckeditor(@course.content)
 
 => link_to 'Edit', edit_course_path(@course)
 '|

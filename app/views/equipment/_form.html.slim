@@ -8,8 +8,8 @@
 
   .field
     = f.label :equiqment_name
-    = f.text_field :equiqment_name
+    = f.text_field :equiqment_name, class: "form-control"
   .field
     = f.label :active
     = f.check_box :active
-  .actions = f.submit
+  .actions = f.submit class: "form-control btn btn-success"

@@ -1,4 +1,3 @@
-//= link_tree ../images
 //= link_directory ../stylesheets .css
 //= require gmaps/google
 //= require moment
@@ -6,3 +5,4 @@
 //= require i18n
 //= require i18n.js
 //= require i18n/translations
+//= require ckeditor/init
