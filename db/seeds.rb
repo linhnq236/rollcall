@@ -118,9 +118,9 @@ end
   end
 end
 [
-  {id: 1,equiqment_name: 'Đèn 13', active: false},
-  {id: 2,equiqment_name: 'Đèn 14', active: false},
-  {id: 3,equiqment_name: 'Đèn 15', active: false},
+  {id: 1,equiqment_name: 'Đèn 13', active: false, room_id: Room.first.id},
+  {id: 2,equiqment_name: 'Đèn 14', active: false, room_id: Room.second.id},
+  {id: 3,equiqment_name: 'Đèn 15', active: false, room_id: Room.third.id},
 ].each do |attr|
   equipment = Equipment.find_by(id: attr[:id])
   Equipment.transaction do

@@ -11,6 +11,7 @@ class EquipmentController < ApplicationController
     current_time = Time.now.strftime("%Y-%m-%d %H:%M")
     current_time_to_i = convert_string_to_int(current_time)
     @equipment = Equipment.all
+    gon.equipment = Equipment.all
     board = Dino::Board.new(Dino::TxRx.new)
     led = Dino::Components::Led.new(pin: 13, board: board)
     led1 = Dino::Components::Led.new(pin: 14, board: board)

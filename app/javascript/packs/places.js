@@ -87,7 +87,7 @@ $(document).ready(function(){
    }else{
      return $.ajax({
        type: "POST",
-       url: "/places",
+       url: "/vn/places",
        data: rollcallData,
      }).done(function (response){
        console.log(rollcallData);
