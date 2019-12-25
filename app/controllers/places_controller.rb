@@ -34,21 +34,22 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.json
   def create
-
-    @place = Place.new(place_params)
-    data = @place.picture
-    image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
-    name = rand(1000..10000)
-    new_file=File.new("#{Rails.root}/public/images/#{name}.png", 'wb')
-    new_file.write(image_data)
-    @place = Place.new(place_params.merge(:picture => name, :date => DateTime.now.to_date))
-    respond_to do |format|
-      if @place.save
-        format.html { redirect_to @place, notice: 'Place was successfully created.' }
-        format.json { render :show, status: :created, location: @place }
-      else
-        format.html { render :new }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+    if Place.where(check_params).exists?
+      render json:{status: "FAILS", data: 2}
+    else
+      @place = Place.new(place_params)
+      data = @place.picture
+      image_data = Base64.decode64(data['data:image/png;base64,'.length .. -1])
+      name = rand(1000..10000)
+      new_file=File.new("#{Rails.root}/public/images/#{name}.png", 'wb')
+      new_file.write(image_data)
+      @place = Place.new(place_params.merge(:picture => name, :date => DateTime.now.to_date, :is_check_in => "true"))
+      respond_to do |format|
+        if @place.save
+          render json:{status: "SUCCESS", data: 1}
+        else
+          render json:{status: "FAILS", data: 0}
+        end
       end
     end
   end
@@ -56,13 +57,17 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
   def update
-    respond_to do |format|
-      if @place.update(place_params)
-        format.html { redirect_to @place, notice: 'Place was successfully updated.' }
-        format.json { render :show, status: :ok, location: @place }
-      else
-        format.html { render :edit }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
+    if Place.where(check_params.merge(:is_check_in => "true")).exists?
+      render json:{status: "FAILS"}
+    else
+      respond_to do |format|
+        if @place.update(place_params)
+          format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+          format.json { render :show, status: :ok, location: @place }
+        else
+          format.html { render :edit }
+          format.json { render json: @place.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -83,6 +88,9 @@ class PlacesController < ApplicationController
       @place = Place.find(params[:id])
     end
 
+    def check_params
+      params.require(:place).permit(:user_id, :course_id, :date)
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params

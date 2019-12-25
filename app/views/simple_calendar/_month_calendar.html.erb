@@ -1,8 +1,8 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('layout.previous', default: 'Previous'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('layout.next', default: 'Next'), calendar.url_for_next_view %>
+  <div class="calendar-heading text-center">
+    <%= link_to t('layout.previous', default: 'Previous'), calendar.url_for_previous_view, class:"float-left" %>
+    <span class="calendar-title"><%= start_date.month %> / <%= start_date.year %></span>
+    <%= link_to t('layout.next', default: 'Next'), calendar.url_for_next_view, class: "float-right" %>
   </div>
 
   <table class="table table-striped">

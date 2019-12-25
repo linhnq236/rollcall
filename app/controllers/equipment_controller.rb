@@ -5,7 +5,7 @@ class EquipmentController < ApplicationController
 
   # GET /equipment
   # GET /equipment.json
-  require "dino_blink"
+  dino_blink = require "dino_blink"
 
   def index
     current_time = Time.now.strftime("%Y-%m-%d %H:%M")
@@ -106,7 +106,7 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:equiqment_name, :active, :timer)
+      params.require(:equipment).permit(:equiqment_name, :active, :timer, :timeout)
     end
     def convert_string_to_int datetime
       return datetime.to_i

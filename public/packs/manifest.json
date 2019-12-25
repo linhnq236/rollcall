@@ -42,10 +42,10 @@
     },
     "equipment": {
       "js": [
-        "/packs/js/equipment-2d3f45a85b45172096e6.js"
+        "/packs/js/equipment-04e62ce354bffbc4be13.js"
       ],
       "js.map": [
-        "/packs/js/equipment-2d3f45a85b45172096e6.js.map"
+        "/packs/js/equipment-04e62ce354bffbc4be13.js.map"
       ]
     },
     "jquery": {
@@ -58,10 +58,10 @@
     },
     "places": {
       "js": [
-        "/packs/js/places-a7d54cfeffec1ef8e381.js"
+        "/packs/js/places-fae173473dbc13f3514b.js"
       ],
       "js.map": [
-        "/packs/js/places-a7d54cfeffec1ef8e381.js.map"
+        "/packs/js/places-fae173473dbc13f3514b.js.map"
       ]
     },
     "webcam": {
@@ -73,12 +73,12 @@
       ]
     }
   },
-  "equipment.js": "/packs/js/equipment-2d3f45a85b45172096e6.js",
-  "equipment.js.map": "/packs/js/equipment-2d3f45a85b45172096e6.js.map",
+  "equipment.js": "/packs/js/equipment-04e62ce354bffbc4be13.js",
+  "equipment.js.map": "/packs/js/equipment-04e62ce354bffbc4be13.js.map",
   "jquery.js": "/packs/js/jquery-89d111d86665a29477aa.js",
   "jquery.js.map": "/packs/js/jquery-89d111d86665a29477aa.js.map",
-  "places.js": "/packs/js/places-a7d54cfeffec1ef8e381.js",
-  "places.js.map": "/packs/js/places-a7d54cfeffec1ef8e381.js.map",
+  "places.js": "/packs/js/places-fae173473dbc13f3514b.js",
+  "places.js.map": "/packs/js/places-fae173473dbc13f3514b.js.map",
   "webcam.js": "/packs/js/webcam-20dea366b3d8591c076c.js",
   "webcam.js.map": "/packs/js/webcam-20dea366b3d8591c076c.js.map"
 }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_155818) do
+ActiveRecord::Schema.define(version: 2019_12_01_085526) do
 
   create_table "apikeys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_155818) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "timer"
     t.bigint "room_id", null: false
+    t.datetime "timeout"
     t.index ["room_id"], name: "index_equipment_on_room_id"
   end
 
@@ -78,6 +79,9 @@ ActiveRecord::Schema.define(version: 2019_11_22_155818) do
     t.integer "course_id"
     t.boolean "status"
     t.date "date"
+    t.boolean "is_chis_check_in"
+    t.boolean "is_check_in"
+    t.boolean "is_check_out"
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 

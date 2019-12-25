@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var lat = '';
   var lon = '';
+  geoFindMe();
   // get location
   function geoFindMe(){
     function success(position){
@@ -59,7 +60,6 @@ $(document).ready(function(){
        course_id: course_id,
      }
    };
-   console.log(rollcallData);
    if(lat == ''&& lon == ''){
        $.confirm({
        title: false,
@@ -71,15 +71,22 @@ $(document).ready(function(){
          Cancel:{
            btnClass: "btn-red",
            action: function(){
-             alert('Roll call failed !');
+             console.log('Roll call failed !');
              location.reload();
            }
          },
          Confirm: {
            btnClass: "btn-blue",
            action: function(){
-             geoFindMe();
-             alert('Turn on GPS success. Please Roll call again !');
+            $.confirm({
+                title: 'NOTE',
+                content: 'Turn on GPS success. Please Roll call again !',
+                confirm: function(){
+                  geoFindMe();
+                },
+                cancel: function(){
+                }
+            });
            }
          },
        }
@@ -87,19 +94,20 @@ $(document).ready(function(){
    }else{
      return $.ajax({
        type: "POST",
-       url: "/vn/places",
+       url: "/places",
        data: rollcallData,
      }).done(function (response){
-       console.log(rollcallData);
-       alert("Roll call susccess.");
-       location.reload();
+       if(response['data'] == 2){
+         alert("You checked in");
+         location.reload();
+       }else{
+         alert("Success");
+         location.reload();
+       }
      }).fail(function(response){
      });
    }
  })
-   // $("#turnon").click(function(){
-   //   configure();
-   // });
    $("#capture").click(function(){
      capture_webcam();
    });

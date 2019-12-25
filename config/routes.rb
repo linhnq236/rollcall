@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     get "/new_course" => "courses#new"
     resources :places
     resources :apikeys
-
     get "/register_course" => "courses#index"
     get "/classTeacher/:course_id" => "usercourses#showAllClassTeacher"
     get "/user_register_course" => "usercourses#user_register_course"
