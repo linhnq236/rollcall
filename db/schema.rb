@@ -79,7 +79,6 @@ ActiveRecord::Schema.define(version: 2019_12_01_085526) do
     t.integer "course_id"
     t.boolean "status"
     t.date "date"
-    t.boolean "is_chis_check_in"
     t.boolean "is_check_in"
     t.boolean "is_check_out"
     t.index ["user_id"], name: "index_places_on_user_id"
