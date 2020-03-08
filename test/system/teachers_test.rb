@@ -14,8 +14,7 @@ class TeachersTest < ApplicationSystemTestCase
     visit teachers_url
     click_on "New Teacher"
 
-    fill_in "Name", with: @teacher.name
-    fill_in "Teacher code", with: @teacher.teacher_code
+    fill_in "Teacher name", with: @teacher.teacher_name
     click_on "Create Teacher"
 
     assert_text "Teacher was successfully created"
@@ -26,8 +25,7 @@ class TeachersTest < ApplicationSystemTestCase
     visit teachers_url
     click_on "Edit", match: :first
 
-    fill_in "Name", with: @teacher.name
-    fill_in "Teacher code", with: @teacher.teacher_code
+    fill_in "Teacher name", with: @teacher.teacher_name
     click_on "Update Teacher"
 
     assert_text "Teacher was successfully updated"

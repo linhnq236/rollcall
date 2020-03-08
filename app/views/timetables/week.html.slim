@@ -1,4 +1,4 @@
-h1 WEEK CALENDAR
+h1 = I18n.t('menu.student.timetable.title')
 = month_calendar events: @timetables, attribute: :start_time  do |date, timetables|
     = date.to_formatted_s(:short)
     - timetables.each do |timetable|
@@ -8,3 +8,9 @@ h1 WEEK CALENDAR
           div
               = timetable.course_name + ' - '
               = timetable.room_name
+              - if date.day == @current_day
+                button#rollcall  data-course_id= timetable.course_id = t('rollcall')
+                button#capture = t('take')
+                div#results
+                div#my_camera
+= javascript_pack_tag 'places', 'data-turbolinks-track': 'reload'

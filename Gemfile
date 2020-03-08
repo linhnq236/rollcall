@@ -30,13 +30,19 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'gon'
 gem 'slim-rails'
-gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'rmagick'
 gem 'devise'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem "simple_calendar", "~> 2.0"
+gem "dino"
+gem "i18n-js"
+gem 'bootstrap-datepicker-rails'
+gem 'paperclip'
+gem 'mini_magick'
+gem 'carrierwave'
+gem "ckeditor"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

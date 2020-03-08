@@ -11,6 +11,12 @@ module Rollcall
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.time_zone = 'Asia/Bangkok'
+    config.active_record.default_timezone = :local
+    config.i18n.load_path += Dir[Rails.root.join('lib','locales', '*.{rb,yml}')]
+    I18n.available_locales = [:vn,:en]
+    # Set default locale to something other than :en
+    I18n.default_locale = :vn
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

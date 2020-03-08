@@ -22,8 +22,8 @@ $(document).ready(function(){
   // ========================================
   function configure(){
    Webcam.set({
-    width: 320,
-    height: 240,
+    width: 250,
+    height: 200,
     image_format: 'jpeg',
     jpeg_quality: 90
    });
@@ -47,6 +47,7 @@ $(document).ready(function(){
  // ==========================================================
  $("#rollcall").click(function(){
    configure();
+   var course_id = $(this).data("course_id");
    var picture = savePic();
    rollcallData = {
      place:{
@@ -54,21 +55,24 @@ $(document).ready(function(){
        lon: lon,
        ip: gon.ip,
        picture: picture,
-       user_id: gon.current_user_id
+       user_id: gon.current_user_id,
+       course_id: course_id,
      }
    };
+   console.log(rollcallData);
    if(lat == ''&& lon == ''){
        $.confirm({
        title: false,
        offsetTop: 20,
        columnClass: "col-md-6 col-md-offset-3 popup-rollcall",
-       content: 'You should turn on GPS!',
+       content:  "#{I18n.t 'hello'}",
        closeIcon: true,
        buttons: {
          Cancel:{
            btnClass: "btn-red",
            action: function(){
              alert('Roll call failed !');
+             location.reload();
            }
          },
          Confirm: {

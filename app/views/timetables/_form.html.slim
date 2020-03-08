@@ -7,20 +7,24 @@
           li = message
   .field
   = f.label :Subject
-  select name = "timetable[course_id]"
+  select.form-control name = "timetable[course_id]"
     - @courses.each do |t|
           option[value = t.id] = t.course_name
-
+  .field
+  = f.label :Teacher
+  select.form-control name = "timetable[user_id]"
+    - @users.each do |t|
+          option[value = t.id] = t.name
   .field
   = f.label :Room
-  select name = "timetable[room_id]"
+  select.form-control name = "timetable[room_id]"
     - @rooms.each do |t|
           option[value = t.id] = t.room_name
   .field
     = f.label :start_time
-    = f.date_select(:start_time)
+    = f.date_field(:start_time, class: "form-control")
   .field
     = f.label :end_time
-    = f.date_select(:end_time)
+    = f.date_field(:end_time, class: "form-control")
 
-  .actions = f.submit
+  .actions = f.submit class: "form-control btn btn-success"
